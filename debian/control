@@ -1,7 +1,7 @@
 Source: libmksh
 Section: non-free/net
 Priority: optional
-Maintainer: Pawel 'usterk' Guc <p.guc@madkom.pl>
+Maintainer: Pawel 'usterk' Guc <usterk@guc.net.pl>
 Build-Depends: debhelper (>= 5)
 Standards-Version: 3.7.2
 
@@ -9,6 +9,9 @@ Package: libmksh
 Architecture: all
 Depends: bash, grep
 Conflicts: 
-Description: Biblioteka z funkcjami wykorzystywanymi przez oprogramowanie firmy Madkom SA
- Zawiera funkcje do logowania.
+Description: Bash library that helps me with common use cases
+ Locks
+ Logging
+ Spinner
+ Clean_exit
 
