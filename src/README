@@ -1,0 +1,36 @@
+Zasady pisania modułów:
+
+1. Wszystkie moduły są napisane w bashu
+2. Na początku każdego modułu zapisujemy ustawienia nounset, tak aby w ciele modułu można było manipulowqać ustawienien. 
+	Na końcu modułu przywracamy ustawienia!
+
+	Przykład: 
+		_module_nounset_save=`print_nounset`
+		set +u
+		if [ -z $SOFT_LOG_DIR ]
+			then
+				SOFT_LOG_DIR=/tmp
+		fi
+
+		set -u
+
+		function asd(){
+			echo a;	
+		}
+		
+		# Przywracanie ustawień
+		$_module_nounset_save
+
+3. Każdy moduł powinein mieć funkcję sprawdzającą zależności. Nazwa funkcji musi pasować do wzorca:
+
+	L[0-9]{2}nazwa_modulu.shCheckDependencies()
+
+	Na przykład:
+
+		L11locks.shCheckDependencies(){
+		is_function log 
+		if [ $? -ne 0 ] 
+			then
+				return 1;
+		fi
+		}
