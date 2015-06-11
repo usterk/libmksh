@@ -1,6 +1,8 @@
 soft=libmksh
 softdir=usr/local/lib/mksh
 
+export PATH=/usr/bin:/bin
+
 all: build
 
 build: test
